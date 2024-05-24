@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html  lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1 shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
+<title>Central Authentication System</title>
+<link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="container">
+	<h2 class="form-signin-heading">Login Oauth2 Authorization</h2>
+<div th:if="${SPRING_SECURITY_LAST_EXCEPTION}" class="alert alert-danger">
+<p th:text="${SPRING_SECURITY_LAST_EXCEPTION}"></p>
+</div>
+<div th:text="${authFailureHandler}" class="alert alert-danger">
+</div>
+<form class="form-signin" method="post" th:action="@{signin}">
+        <h2>Please sign in</h2>
+        <p>
+          <label for="username" class="sr-only">Username</label>
+          <input type="text" id="username" name="username"  placeholder="Username" required autofocus class="form-control">
+        </p>
+        <p>
+          <label for="password" class="sr-only">Password</label>
+          <input type="password" id="password" name="password"  placeholder="Password" required class="form-control">
+        </p>
+        
+        <p>
+          <label for="systemId" class="sr-only">System Id</label>
+          < input type="text" id="systemId" name="systemId"  placeholder="System Id" required class="form-control" >
+        </p>
+        
+    
+        <button  type="submit" class="btn btn-lg btn-primary btn-block">Sign in</button>
+      </form>
+   </div>
+</body>
+</html>
